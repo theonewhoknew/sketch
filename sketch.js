@@ -21,14 +21,14 @@ function create16x16Grid () {
 
 create16x16Grid()
 
-document.querySelectorAll("square").forEach(item => {
-    addEventListener("mouseover", )
+container.querySelectorAll(".square").forEach(element => addEventListener("mouseover",hover))
+
+function hover(){
+    container.querySelectorAll(".square").forEach(element => element.style.backgroundColor = "yellow");
+    
 }
 
-function hoverEffect () {
-    let = affectedquare
-    
-    
-}
+
+
 
 

@@ -1,6 +1,12 @@
 const container = document.getElementById("container");
 container.style.display = "flex"
 container.style.flexWrap = "wrap"
+const buttonContainer = document.createElement("div")
+document.body.insertBefore(buttonContainer, container)
+buttonContainer.classList.add("buttonContainer")
+const resetButton = document.createElement ("button")
+buttonContainer.appendChild (resetButton)
+resetButton.innerHTML = "RESET"
 
 
 let grid
@@ -15,18 +21,30 @@ function createDiv(index) {
 function create16x16Grid () {
     for(let i = 0; i < 256; i++) {
     createDiv(i)
-    
     }
 }
 
 create16x16Grid()
 
-function getHover () {
-    let cell = document.getElementById("0");
-    console.log(cell)
-    cell.addEventListener("mouseover", () => cell.style.backgroundColor = "yellow");
+function getHover(index) {
+    let cell = document.getElementById(index);
+    cell.addEventListener("mouseover", () => cell.classList.add ("hovered"));
 }
-getHover ();
+
+for (let i = 0; i < 256; i++) {
+    getHover(i);
+}
+
+let userInput = ""
+
+
+function getGridNumber() {
+    userInput = prompt("type number of squares per side of new grid") 
+    console.log(userInput)
+}
+
+resetButton.addEventListener ("click", (getGridNumber))
+
 
 
 

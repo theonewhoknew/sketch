@@ -16,13 +16,28 @@ function createDiv(index) {
    grid.setAttribute("id",index)
 }    
 
-function create16x16Grid () {
-    for(let i = 0; i < 256; i++) {
+let squareNumber = 0
+
+
+function createGrid (n = 16) {
+    for(let i = 0; i < n*n; i++) {
     createDiv(i)
+    container.style.gridTemplateColumns = `repeat(${n},2fr)`
+    container.style.gridTemplateRows = `repeat(${n},2fr)`
+    squareNumber = n;
     }
 }
 
-create16x16Grid()
+function removeGrid(n) {
+    for (let i = 0; i < n*n; i++) {
+      let removed =  document.getElementById(i);
+      removed.remove();
+    }
+}
+
+createGrid()
+
+
 
 function getHover(index) {
     let cell = document.getElementById(index);
@@ -33,15 +48,24 @@ for (let i = 0; i < 256; i++) {
     getHover(i);
 }
 
-let userInput = ""
+let userInput = 0
 
 
-function getGridNumber() {
-    userInput = prompt("type number of squares per side of new grid") 
-    console.log(userInput)
+
+let squareGroup = document.getElementsByClassName("square")
+
+
+function createNewGrid() {
+    userInput = prompt("type number of squares per side of new grid")
+        if (userInput > 100) {
+        prompt("more than 100 is too much. type a number again")
+        } 
+    removeGrid(squareNumber);
+    createGrid (userInput);
+
 }
 
-resetButton.addEventListener ("click", (getGridNumber))
+resetButton.addEventListener ("click", (createNewGrid))
 
 
 

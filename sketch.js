@@ -1,3 +1,5 @@
+
+//HTML CREATION
 const container = document.getElementById("container");
 const buttonContainer = document.createElement("div")
 document.body.appendChild(buttonContainer)
@@ -16,15 +18,18 @@ function createDiv(index) {
    grid.setAttribute("id",index)
 }    
 
-let squareNumber = 0
+let squareNumber = 0  //So we can tell how many squares to remove/hover in remove function
 
 
 function createGrid (n = 16) {
     for(let i = 0; i < n*n; i++) {
     createDiv(i)
-    container.style.gridTemplateColumns = `repeat(${n},2fr)`
-    container.style.gridTemplateRows = `repeat(${n},2fr)`
+    container.style.gridTemplateColumns = `repeat(${n},2fr)`  ;
+    container.style.gridTemplateRows = `repeat(${n},2fr)`;
     squareNumber = n;
+    }
+    for (let i = 0; i < n*n; i++) {
+    getHover(i);
     }
 }
 
@@ -44,9 +49,9 @@ function getHover(index) {
     cell.addEventListener("mouseover", () => cell.classList.add ("hovered"));
 }
 
-for (let i = 0; i < 256; i++) {
+/* for (let i = 0; i < 256; i++) {
     getHover(i);
-}
+} */
 
 let userInput = 0
 

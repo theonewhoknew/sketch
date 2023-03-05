@@ -1,12 +1,14 @@
-body {
-    min-height: 100vh;
-    padding: 0;
-  }
+html {
+    height: 100% ;
+}
 
 body {
-    height: 100vh;
+    min-height: 100%;
     padding: 0;
- 
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    margin: 0;
   }
 
 button {
@@ -19,16 +21,28 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
+    padding: 25px;
+}
+
+#container {
+    padding-left: 445px;
+    padding-right:445px;
+    display: grid;
+    grid-template-columns: repeat(16,2fr);
+    grid-template-rows: repeat(16,2fr);
+    height: 779px;
+    width: 779px;
+
 }
 
 .square {
-    width: 110px;
-    height: 110px;
-    border-style: solid;
+    height: auto;
+    width: auto;
     border-color: black;
-    flex-basis: auto;
+    border-style: solid;
 }
+
+
 
 .hovered {
     box-shadow: blue;

@@ -1,8 +1,6 @@
 const container = document.getElementById("container");
-container.style.display = "flex"
-container.style.flexWrap = "wrap"
 const buttonContainer = document.createElement("div")
-document.body.insertBefore(buttonContainer, container)
+document.body.appendChild(buttonContainer)
 buttonContainer.classList.add("buttonContainer")
 const resetButton = document.createElement ("button")
 buttonContainer.appendChild (resetButton)
